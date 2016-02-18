@@ -4,16 +4,61 @@
     {
       "type": "kendo-ui-mobile:view",
       "name": "home",
-      "components": [],
+      "components": [
+        {
+          "type": "kendo-ui-mobile:editableList",
+          "listExtraFields": [],
+          "detailExtraFields": [],
+          "components": [],
+          "name": "homeModel",
+          "dataProvider": "progressDataProvider",
+          "collection": "Carro",
+          "headerField": "name",
+          "addItemForm": false,
+          "editItemForm": false,
+          "pullToRefresh": false,
+          "endlessScroll": false,
+          "deleteItemButton": false
+        }
+      ],
       "title": "Home View",
       "addToNavigation": true,
       "icon": "home"
+    },
+    {
+      "type": "kendo-ui-mobile:view",
+      "name": "authenticationView",
+      "components": [
+        {
+          "type": "kendo-ui-mobile:authentication",
+          "name": "authenticationViewModel",
+          "dataProvider": "progressDataProvider",
+          "emailLabel": "ID",
+          "passwordLabel": "Password",
+          "signinLabel": "Sign In",
+          "signinRedirect": "home",
+          "enableRegistration": false
+        }
+      ],
+      "title": "Authentication",
+      "addToNavigation": false
     }
   ],
-  "dataProviders": [],
+  "dataProviders": [
+    {
+      "type": "kendo-ui-mobile:dataProvider",
+      "name": "progressDataProvider",
+      "catalogContent": "[{\"name\":\"Carro\",\"path\":\"jsdo\",\"displayName\":\"Carro\",\"idProperty\":\"id\",\"schema\":{\"type\":\"object\",\"additionalProperties\":false,\"properties\":{\"Carro\":{\"type\":\"array\",\"items\":{\"additionalProperties\":false,\"properties\":{\"_id\":{\"type\":\"string\",\"default\":\"\",\"title\":\"_id\",\"name\":\"_id\"},\"name\":{\"type\":\"string\",\"title\":\"Carro\",\"name\":\"name\"},\"comment\":{\"type\":\"string\",\"title\":\"Comments\",\"name\":\"comment\"},\"createdAt\":{\"type\":\"string\",\"title\":\"Created At\",\"format\":\"date-time\",\"name\":\"createdAt\"},\"createdBy\":{\"type\":\"number\",\"title\":\"Created By\",\"name\":\"createdBy\"},\"id\":{\"type\":\"number\",\"title\":\"ID\",\"name\":\"id\"},\"Lugares\":{\"type\":\"number\",\"title\":\"Lugares\",\"name\":\"Lugares\"},\"Modelo\":{\"type\":\"number\",\"title\":\"Modelo\",\"name\":\"Modelo\"},\"Placa\":{\"type\":\"string\",\"title\":\"Placa\",\"name\":\"Placa\"},\"Preco\":{\"type\":\"number\",\"title\":\"Preco\",\"name\":\"Preco\"},\"tag\":{\"type\":\"string\",\"title\":\"Tags\",\"name\":\"tag\"},\"updatedAt\":{\"type\":\"string\",\"title\":\"Updated At\",\"format\":\"date-time\",\"name\":\"updatedAt\"},\"updatedBy\":{\"type\":\"number\",\"title\":\"Updated By\",\"name\":\"updatedBy\"}}}}}},\"dataDefinitions\":{\"picklistData\":{\"type\":\"array\",\"properties\":{\"code\":{\"type\":\"string\",\"default\":\"\",\"title\":\"Code\"},\"id\":{\"type\":\"integer\",\"default\":\"-1\",\"title\":\"Id\"},\"name\":{\"type\":\"string\",\"default\":\"\",\"title\":\"Name\"}}}},\"operations\":[{\"name\":\"getPicklist_Modelo\",\"path\":\"/getPicklist?output=json&objDefId=165125318&fieldDefId=165125417\",\"type\":\"invoke\",\"verb\":\"get\",\"params\":[{\"name\":\"picklistData\",\"xType\":\"ARRAY\",\"type\":\"RESPONSE_BODY\"}],\"url\":\"https://www.rollbase.com/rest/jsdo/getPicklist?output=json&objDefId=165125318&fieldDefId=165125417\"},{\"name\":\"create\",\"path\":\"/create2?output=json&useIds=true&objName=Carro\",\"type\":\"create\",\"verb\":\"post\",\"params\":[{\"name\":\"Carro\",\"type\":\"REQUEST_BODY\",\"xType\":\"DATASET\"},{\"name\":\"Carro\",\"type\":\"RESPONSE_BODY\",\"xType\":\"DATASET\"}],\"url\":\"https://www.rollbase.com/rest/jsdo/create2?output=json&useIds=true&objName=Carro\"},{\"name\":\"read\",\"path\":\"/selectQuery?filter={filter}&objName=Carro\",\"type\":\"read\",\"verb\":\"get\",\"mappingType\":\"JFP\",\"capabilities\":\"sqlQuery,top,skip,id,orderBy\",\"params\":[{\"name\":\"Carro\",\"type\":\"RESPONSE_BODY\",\"xType\":\"DATASET\"},{\"name\":\"filter\",\"type\":\"QUERY\",\"xType\":\"string\"}],\"url\":\"https://www.rollbase.com/rest/jsdo/selectQuery?filter={filter}&objName=Carro\"},{\"name\":\"update\",\"path\":\"/update2?output=json&useIds=true&objName=Carro\",\"type\":\"update\",\"verb\":\"put\",\"params\":[{\"name\":\"Carro\",\"type\":\"REQUEST_BODY\",\"xType\":\"DATASET\"},{\"name\":\"Carro\",\"type\":\"RESPONSE_BODY\",\"xType\":\"DATASET\"}],\"url\":\"https://www.rollbase.com/rest/jsdo/update2?output=json&useIds=true&objName=Carro\"},{\"name\":\"delete\",\"path\":\"/delete?output=json&id={id}&objName=Carro\",\"type\":\"delete\",\"verb\":\"delete\",\"params\":[{\"name\":\"Carro\",\"type\":\"REQUEST_BODY\",\"xType\":\"DATASET\"},{\"name\":\"Carro\",\"type\":\"RESPONSE_BODY\",\"xType\":\"DATASET\"}],\"url\":\"https://www.rollbase.com/rest/jsdo/delete?output=json&id={id}&objName=Carro\"},{\"name\":\"count\",\"path\":\"/getCount?filter={filter}&objName=Carro\",\"type\":\"invoke\",\"verb\":\"get\",\"params\":[{\"name\":\"Carro\",\"type\":\"RESPONSE_BODY\",\"xType\":\"DATASET\"}],\"url\":\"https://www.rollbase.com/rest/jsdo/getCount?filter={filter}&objName=Carro\"},{\"name\":\"getView_Todos_os_Carros\",\"path\":\"/getPage?output=json&startRow={startRow}&rowsPerPage={rowsPerPage}&viewId=165125374&objName=Carro\",\"type\":\"invoke\",\"verb\":\"get\",\"mergeMode\":\"EMPTY\",\"params\":[{\"name\":\"Carro\",\"type\":\"RESPONSE_BODY\",\"xType\":\"DATASET\"}],\"url\":\"https://www.rollbase.com/rest/jsdo/getPage?output=json&startRow={startRow}&rowsPerPage={rowsPerPage}&viewId=165125374&objName=Carro\"}],\"fn\":{\"getPicklist_Modelo\":{},\"count\":{},\"getView_Todos_os_Carros\":{}},\"url\":\"https://www.rollbase.com/rest/jsdo\",\"fields\":{\"Carro\":[{\"type\":\"string\",\"title\":\"Carro\",\"name\":\"name\"},{\"type\":\"string\",\"title\":\"Comments\",\"name\":\"comment\"},{\"type\":\"string\",\"title\":\"Created At\",\"format\":\"date-time\",\"name\":\"createdAt\"},{\"type\":\"number\",\"title\":\"Created By\",\"name\":\"createdBy\"},{\"type\":\"number\",\"title\":\"ID\",\"name\":\"id\"},{\"type\":\"number\",\"title\":\"Lugares\",\"name\":\"Lugares\"},{\"type\":\"number\",\"title\":\"Modelo\",\"name\":\"Modelo\"},{\"type\":\"string\",\"title\":\"Placa\",\"name\":\"Placa\"},{\"type\":\"number\",\"title\":\"Preco\",\"name\":\"Preco\"},{\"type\":\"string\",\"title\":\"Tags\",\"name\":\"tag\"},{\"type\":\"string\",\"title\":\"Updated At\",\"format\":\"date-time\",\"name\":\"updatedAt\"},{\"type\":\"number\",\"title\":\"Updated By\",\"name\":\"updatedBy\"}]},\"primaryKeys\":{},\"_tempTableName\":\"Carro\",\"dataProperty\":\"Carro\",\"generic\":{}}]",
+      "title": "Progress Data Service",
+      "source": "jsdo",
+      "url": "https://www.rollbase.com/rest/jsdo/",
+      "catalogUrl": "https://www.rollbase.com/rest/jsdo/catalog/teste.json",
+      "authentication": "basic"
+    }
+  ],
   "name": "kendoUiMobileApp",
   "navigation": "tabstrip",
-  "view": "home",
+  "view": "authenticationView",
   "transition": "slide",
   "skin": "flat"
 }
